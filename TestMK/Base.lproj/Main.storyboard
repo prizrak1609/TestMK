@@ -1,26 +1,96 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NtZ-ti-8wm">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TestMK" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WsD-eS-0q2">
+                                <rect key="frame" x="48" y="249" width="224" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFs-Sc-OBT">
+                                        <rect key="frame" x="0.0" y="0.0" width="224" height="30"/>
+                                        <state key="normal" title="Work with drivers"/>
+                                        <connections>
+                                            <segue destination="pba-nh-x3S" kind="show" id="7Rj-tQ-2fS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omn-0k-CVe">
+                                        <rect key="frame" x="0.0" y="40" width="224" height="30"/>
+                                        <state key="normal" title="Work with cars"/>
+                                        <connections>
+                                            <segue destination="Mzh-sK-YWi" kind="show" id="h4f-a3-aR0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WsD-eS-0q2" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="6ne-Vc-54k"/>
+                            <constraint firstItem="WsD-eS-0q2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="I2y-I6-Ets"/>
+                            <constraint firstItem="WsD-eS-0q2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R3k-BH-tKZ"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="1nC-xj-49O"/>
+                    <connections>
+                        <outlet property="workWithCarsButton" destination="Omn-0k-CVe" id="53K-U4-uRu"/>
+                        <outlet property="workWithDriversButton" destination="yFs-Sc-OBT" id="gD7-A3-hvI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1021.875" y="33.802816901408448"/>
+        </scene>
+        <!--DriversScreen-->
+        <scene sceneID="8Ci-c0-brU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DriversScreen" id="pba-nh-x3S" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kdg-dR-Rpm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1711.875" y="6.3380281690140849"/>
+        </scene>
+        <!--CarsScreen-->
+        <scene sceneID="9MZ-sF-hDA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CarsScreen" id="Mzh-sK-YWi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CCh-kk-f4A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1697.8125" y="57.04225352112676"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6xb-hn-PnR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NtZ-ti-8wm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z7B-Sh-Ywg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="zD3-PE-ufO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k8o-JD-GpM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="242" y="34"/>
         </scene>
     </scenes>
 </document>
