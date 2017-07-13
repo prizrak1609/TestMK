@@ -10,9 +10,9 @@ import UIKit
 
 final class CarsInfoScreen : UIViewController {
 
-    @IBOutlet fileprivate weak var nameLabel: UILabel!
+    @IBOutlet fileprivate weak var nameTextField: UITextField!
     @IBOutlet fileprivate weak var photoImageView: UIImageView!
-    @IBOutlet fileprivate weak var descriptionLabel: UILabel!
+    @IBOutlet fileprivate weak var textDescriptionTextField: UITextView!
 
     var model: CarsInfo?
 
@@ -20,8 +20,13 @@ final class CarsInfoScreen : UIViewController {
         super.viewDidLoad()
         title = NSLocalizedString("Car info", comment: "CarsInfo screen")
         guard let model = model else { return }
-        nameLabel.text = model.name
-        descriptionLabel.text = model.description
+        nameTextField.text = model.name
+        textDescriptionTextField.text = model.description
         photoImageView.image = UIImage(contentsOfFile: model.photoPath)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // TODO: update info
     }
 }
