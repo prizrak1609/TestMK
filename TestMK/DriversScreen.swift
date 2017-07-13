@@ -1,5 +1,5 @@
 //
-//  CarsScreen.swift
+//  DriversScreen.swift
 //  TestMK
 //
 //  Created by Dima Gubatenko on 13.07.17.
@@ -8,29 +8,29 @@
 
 import UIKit
 
-final class CarsScreen : UIViewController {
+final class DriversScreen: UIViewController {
 
-    @IBOutlet fileprivate weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
 
     fileprivate var tableViewIsInEditMode = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
-        title = NSLocalizedString("Cars", comment: "CarsScreen title")
-        let addCarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCarButtonClicked))
+        title = NSLocalizedString("Drivers", comment: "DriversScreen title")
+        let addCarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDriverButtonClicked))
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonClicked))
         navigationItem.rightBarButtonItems = [addCarButton, editButton]
         initTableView()
     }
 }
 
-extension CarsScreen : UITableViewDelegate, UITableViewDataSource {
+extension DriversScreen : UITabBarDelegate, UITableViewDataSource {
 
     func initTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: Cell.carsInfo, bundle: nil), forCellReuseIdentifier: Cell.carsInfo)
+        tableView.register(UINib(nibName: Cell.driverInfo, bundle: nil), forCellReuseIdentifier: Cell.driverInfo)
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -42,7 +42,7 @@ extension CarsScreen : UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.carsInfo) as? CarsInfoCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.driverInfo) as? DriverInfoCell else { return UITableViewCell() }
         return cell
     }
 
@@ -50,23 +50,23 @@ extension CarsScreen : UITableViewDelegate, UITableViewDataSource {
         return [UITableViewRowAction(style: .normal, title: "Edit", handler: { [weak self] _, indexPath in
             guard let welf = self else { return }
             print(indexPath)
-            if let carInfoScreen = Storyboards.carsInfo {
-                welf.navigationController?.pushViewController(carInfoScreen, animated: true)
+            if let driverInfoScreen = Storyboards.driverInfo {
+                welf.navigationController?.pushViewController(driverInfoScreen, animated: true)
             } else {
-                showText("can't get \(Storyboards.Name.carsInfo) storyboard")
+                showText("can't get \(Storyboards.Name.driverInfo) storyboard")
             }
         })]
     }
 }
 
-private extension CarsScreen {
+private extension DriversScreen {
 
     @objc
-    func addCarButtonClicked() {
-        if let carCreateScreen = Storyboards.carsCreate {
-            navigationController?.pushViewController(carCreateScreen, animated: true)
+    func addDriverButtonClicked() {
+        if let driverCreate = Storyboards.driverCreate {
+            navigationController?.pushViewController(driverCreate, animated: true)
         } else {
-            showText("can't get \(Storyboards.Name.carsCreate) storyboard")
+            showText("can't get \(Storyboards.Name.driverCreate) storyboard")
         }
     }
 
