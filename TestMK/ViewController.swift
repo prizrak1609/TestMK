@@ -14,7 +14,6 @@ final class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
         workWithDriversButton.layer.cornerRadius = 10
         workWithDriversButton.layer.borderColor = UIColor.blue.cgColor
         workWithDriversButton.layer.borderWidth = 1

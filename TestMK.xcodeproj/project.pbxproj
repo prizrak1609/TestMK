@@ -20,6 +20,13 @@
 		78E1C5691F179D1C00904364 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E1C5681F179D1C00904364 /* Storyboards.swift */; };
 		78E1C5701F17A5F700904364 /* CarsScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E1C56F1F17A5F700904364 /* CarsScreen.storyboard */; };
 		78E1C5721F17A60200904364 /* DriversScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E1C5711F17A60200904364 /* DriversScreen.storyboard */; };
+		78E1C5741F17A7B100904364 /* CarsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E1C5731F17A7B100904364 /* CarsScreen.swift */; };
+		78E1C5791F17A99D00904364 /* CarsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E1C5781F17A99D00904364 /* CarsInfo.swift */; };
+		78E1C57D1F17AB5A00904364 /* CarsInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E1C57B1F17AB5A00904364 /* CarsInfoCell.swift */; };
+		78E1C57E1F17AB5A00904364 /* CarsInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78E1C57C1F17AB5A00904364 /* CarsInfoCell.xib */; };
+		78E1C5801F17ADC200904364 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E1C57F1F17ADC200904364 /* Cells.swift */; };
+		78E1C5831F17B98200904364 /* CarsInfoScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E1C5821F17B98200904364 /* CarsInfoScreen.storyboard */; };
+		78E1C5861F17BA6C00904364 /* CarsCreateScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E1C5851F17BA6C00904364 /* CarsCreateScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +57,13 @@
 		78E1C5681F179D1C00904364 /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		78E1C56F1F17A5F700904364 /* CarsScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CarsScreen.storyboard; sourceTree = "<group>"; };
 		78E1C5711F17A60200904364 /* DriversScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DriversScreen.storyboard; sourceTree = "<group>"; };
+		78E1C5731F17A7B100904364 /* CarsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsScreen.swift; sourceTree = "<group>"; };
+		78E1C5781F17A99D00904364 /* CarsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsInfo.swift; sourceTree = "<group>"; };
+		78E1C57B1F17AB5A00904364 /* CarsInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsInfoCell.swift; sourceTree = "<group>"; };
+		78E1C57C1F17AB5A00904364 /* CarsInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarsInfoCell.xib; sourceTree = "<group>"; };
+		78E1C57F1F17ADC200904364 /* Cells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
+		78E1C5821F17B98200904364 /* CarsInfoScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CarsInfoScreen.storyboard; sourceTree = "<group>"; };
+		78E1C5851F17BA6C00904364 /* CarsCreateScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CarsCreateScreen.storyboard; sourceTree = "<group>"; };
 		852424CE6FAEBF53A965C8F3 /* Pods-TestMK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestMK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestMK/Pods-TestMK.debug.xcconfig"; sourceTree = "<group>"; };
 		85CDEAD3CBB8AD4F45B42F74 /* Pods_TestMKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestMKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA29615070E90A12F6137D24 /* Pods-TestMK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestMK.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestMK/Pods-TestMK.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,8 +135,10 @@
 		780C92821F179BD700F8F845 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				78E1C5771F17A98B00904364 /* Info */,
 				780C92831F179BE800F8F845 /* Functions.swift */,
 				78E1C5681F179D1C00904364 /* Storyboards.swift */,
+				78E1C57F1F17ADC200904364 /* Cells.swift */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -153,6 +169,8 @@
 				780C92821F179BD700F8F845 /* Global */,
 				780C92801F179B4B00F8F845 /* MainScreen */,
 				78E1C56B1F17A32100904364 /* CarsScreen */,
+				78E1C5841F17BA5800904364 /* CarsCreateScreen */,
+				78E1C5811F17B96800904364 /* CarsInfoScreen */,
 				78E1C56A1F17A31800904364 /* DriversScreen */,
 				780C927F1F179B4300F8F845 /* Other */,
 			);
@@ -180,8 +198,43 @@
 			isa = PBXGroup;
 			children = (
 				78E1C56F1F17A5F700904364 /* CarsScreen.storyboard */,
+				78E1C5731F17A7B100904364 /* CarsScreen.swift */,
+				78E1C57A1F17AB3B00904364 /* Cells */,
 			);
 			name = CarsScreen;
+			sourceTree = "<group>";
+		};
+		78E1C5771F17A98B00904364 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				78E1C5781F17A99D00904364 /* CarsInfo.swift */,
+			);
+			name = Info;
+			sourceTree = "<group>";
+		};
+		78E1C57A1F17AB3B00904364 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				78E1C57C1F17AB5A00904364 /* CarsInfoCell.xib */,
+				78E1C57B1F17AB5A00904364 /* CarsInfoCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		78E1C5811F17B96800904364 /* CarsInfoScreen */ = {
+			isa = PBXGroup;
+			children = (
+				78E1C5821F17B98200904364 /* CarsInfoScreen.storyboard */,
+			);
+			name = CarsInfoScreen;
+			sourceTree = "<group>";
+		};
+		78E1C5841F17BA5800904364 /* CarsCreateScreen */ = {
+			isa = PBXGroup;
+			children = (
+				78E1C5851F17BA6C00904364 /* CarsCreateScreen.storyboard */,
+			);
+			name = CarsCreateScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,9 +329,12 @@
 			files = (
 				78DC789B1F1795CA006C2B6F /* LaunchScreen.storyboard in Resources */,
 				78E1C5701F17A5F700904364 /* CarsScreen.storyboard in Resources */,
+				78E1C57E1F17AB5A00904364 /* CarsInfoCell.xib in Resources */,
 				78DC78981F1795CA006C2B6F /* Assets.xcassets in Resources */,
 				78DC78961F1795CA006C2B6F /* Main.storyboard in Resources */,
 				78E1C5721F17A60200904364 /* DriversScreen.storyboard in Resources */,
+				78E1C5831F17B98200904364 /* CarsInfoScreen.storyboard in Resources */,
+				78E1C5861F17BA6C00904364 /* CarsCreateScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,9 +458,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78E1C5741F17A7B100904364 /* CarsScreen.swift in Sources */,
+				78E1C5801F17ADC200904364 /* Cells.swift in Sources */,
 				78E1C5691F179D1C00904364 /* Storyboards.swift in Sources */,
+				78E1C5791F17A99D00904364 /* CarsInfo.swift in Sources */,
 				78DC78931F1795CA006C2B6F /* ViewController.swift in Sources */,
 				78DC78911F1795CA006C2B6F /* AppDelegate.swift in Sources */,
+				78E1C57D1F17AB5A00904364 /* CarsInfoCell.swift in Sources */,
 				780C92841F179BE800F8F845 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

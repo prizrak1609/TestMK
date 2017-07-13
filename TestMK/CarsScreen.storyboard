@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tDH-gy-rOn">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -8,19 +8,38 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Cars Screen-->
         <scene sceneID="tJx-rM-n28">
             <objects>
-                <viewController id="tDH-gy-rOn" sceneMemberID="viewController">
+                <viewController id="tDH-gy-rOn" customClass="CarsScreen" customModule="TestMK" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bA5-Yl-bdl"/>
                         <viewControllerLayoutGuide type="bottom" id="Oy0-39-hhQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7cs-3E-puC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yMH-gN-qDu">
+                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Oy0-39-hhQ" firstAttribute="top" secondItem="yMH-gN-qDu" secondAttribute="bottom" id="ctb-Sj-UAB"/>
+                            <constraint firstAttribute="trailing" secondItem="yMH-gN-qDu" secondAttribute="trailing" id="gw7-tr-8t7"/>
+                            <constraint firstItem="yMH-gN-qDu" firstAttribute="leading" secondItem="7cs-3E-puC" secondAttribute="leading" id="hDV-4I-lQg"/>
+                            <constraint firstItem="yMH-gN-qDu" firstAttribute="top" secondItem="bA5-Yl-bdl" secondAttribute="bottom" id="lF8-ro-7ue"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="yMH-gN-qDu" id="eaS-bR-UhL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEG-PK-gEL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
