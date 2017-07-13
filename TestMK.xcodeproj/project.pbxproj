@@ -34,6 +34,7 @@
 		78E1C5941F17C37B00904364 /* DriverInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E1C5921F17C37B00904364 /* DriverInfoCell.swift */; };
 		78E1C5951F17C37B00904364 /* DriverInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78E1C5931F17C37B00904364 /* DriverInfoCell.xib */; };
 		78E1C5971F17CA6500904364 /* CarsInfoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E1C5961F17CA6500904364 /* CarsInfoScreen.swift */; };
+		78E1C5991F17CE1900904364 /* CarsCreateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E1C5981F17CE1900904364 /* CarsCreateScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		78E1C5921F17C37B00904364 /* DriverInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverInfoCell.swift; sourceTree = "<group>"; };
 		78E1C5931F17C37B00904364 /* DriverInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriverInfoCell.xib; sourceTree = "<group>"; };
 		78E1C5961F17CA6500904364 /* CarsInfoScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsInfoScreen.swift; sourceTree = "<group>"; };
+		78E1C5981F17CE1900904364 /* CarsCreateScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsCreateScreen.swift; sourceTree = "<group>"; };
 		852424CE6FAEBF53A965C8F3 /* Pods-TestMK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestMK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestMK/Pods-TestMK.debug.xcconfig"; sourceTree = "<group>"; };
 		85CDEAD3CBB8AD4F45B42F74 /* Pods_TestMKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestMKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA29615070E90A12F6137D24 /* Pods-TestMK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestMK.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestMK/Pods-TestMK.release.xcconfig"; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				78E1C5851F17BA6C00904364 /* CarsCreateScreen.storyboard */,
+				78E1C5981F17CE1900904364 /* CarsCreateScreen.swift */,
 			);
 			name = CarsCreateScreen;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78E1C5741F17A7B100904364 /* CarsScreen.swift in Sources */,
+				78E1C5991F17CE1900904364 /* CarsCreateScreen.swift in Sources */,
 				78E1C5801F17ADC200904364 /* Cells.swift in Sources */,
 				78E1C5881F17BEE200904364 /* DriversScreen.swift in Sources */,
 				78E1C5941F17C37B00904364 /* DriverInfoCell.swift in Sources */,

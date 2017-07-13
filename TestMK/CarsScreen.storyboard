@@ -11,7 +11,7 @@
         <!--Cars Screen-->
         <scene sceneID="tJx-rM-n28">
             <objects>
-                <viewController id="tDH-gy-rOn" customClass="CarsScreen" customModule="TestMK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="tDH-gy-rOn" customClass="CarsScreen" customModule="TestMK" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bA5-Yl-bdl"/>
                         <viewControllerLayoutGuide type="bottom" id="Oy0-39-hhQ"/>
