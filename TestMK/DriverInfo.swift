@@ -7,7 +7,7 @@
 //
 
 struct DriverInfo {
-    let photoPath: String
-    let name: String
-    let cars: [Int]
+    var photoPath: String
+    var name: String
+    var cars: [Int]
 }

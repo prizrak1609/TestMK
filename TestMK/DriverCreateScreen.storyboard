@@ -1,30 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ahe-xu-EvV">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Driver Create Screen-->
         <scene sceneID="bEY-t9-hAc">
             <objects>
-                <viewController id="Ahe-xu-EvV" sceneMemberID="viewController">
+                <viewController id="Ahe-xu-EvV" customClass="DriverCreateScreen" customModule="TestMK" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aDb-Kz-nwT"/>
                         <viewControllerLayoutGuide type="bottom" id="EGq-EM-yYT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UIS-Oy-6Yy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Rj-0n-L3A">
+                                <rect key="frame" x="16" y="28" width="96" height="96"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2Rj-0n-L3A" secondAttribute="height" multiplier="1:1" id="G9G-hb-SI5"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="CuD-nw-BaR" appends="YES" id="ia5-D6-bod"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NC2-14-55j">
+                                <rect key="frame" x="117" y="28" width="187" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Gf-2B-PEU">
+                                <rect key="frame" x="117" y="94" width="54" height="30"/>
+                                <state key="normal" title="Add car"/>
+                                <connections>
+                                    <action selector="addCar:" destination="Ahe-xu-EvV" eventType="touchUpInside" id="pg8-b8-pR7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHX-nR-KAy">
+                                <rect key="frame" x="258" y="94" width="46" height="30"/>
+                                <state key="normal" title="Create"/>
+                                <connections>
+                                    <action selector="createDriver:" destination="Ahe-xu-EvV" eventType="touchUpInside" id="zrI-tx-CGq"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pKk-YK-GYT">
+                                <rect key="frame" x="16" y="129" width="288" height="424"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="7Gf-2B-PEU" firstAttribute="leading" secondItem="NC2-14-55j" secondAttribute="leading" id="0mM-5P-Km6"/>
+                            <constraint firstItem="EHX-nR-KAy" firstAttribute="bottom" secondItem="7Gf-2B-PEU" secondAttribute="bottom" id="1HH-Jm-nLH"/>
+                            <constraint firstItem="7Gf-2B-PEU" firstAttribute="bottom" secondItem="2Rj-0n-L3A" secondAttribute="bottom" id="6Zi-qo-UbE"/>
+                            <constraint firstItem="NC2-14-55j" firstAttribute="top" secondItem="2Rj-0n-L3A" secondAttribute="top" id="JzO-rP-8JW"/>
+                            <constraint firstItem="NC2-14-55j" firstAttribute="leading" secondItem="2Rj-0n-L3A" secondAttribute="trailing" constant="5" id="Kw5-Ev-rey"/>
+                            <constraint firstItem="pKk-YK-GYT" firstAttribute="leading" secondItem="2Rj-0n-L3A" secondAttribute="leading" id="LfQ-Uv-OHf"/>
+                            <constraint firstItem="EHX-nR-KAy" firstAttribute="trailing" secondItem="NC2-14-55j" secondAttribute="trailing" id="N4s-en-lA7"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="2Rj-0n-L3A" secondAttribute="leading" id="RGP-t7-0ck"/>
+                            <constraint firstItem="2Rj-0n-L3A" firstAttribute="top" secondItem="aDb-Kz-nwT" secondAttribute="bottom" constant="8" id="ZrP-Af-x8g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NC2-14-55j" secondAttribute="trailing" id="bMz-Dj-QLW"/>
+                            <constraint firstItem="pKk-YK-GYT" firstAttribute="top" secondItem="2Rj-0n-L3A" secondAttribute="bottom" constant="5" id="diG-jy-FGK"/>
+                            <constraint firstItem="2Rj-0n-L3A" firstAttribute="width" secondItem="UIS-Oy-6Yy" secondAttribute="width" multiplier="0.3" id="w9E-dS-j0H"/>
+                            <constraint firstItem="EGq-EM-yYT" firstAttribute="top" secondItem="pKk-YK-GYT" secondAttribute="bottom" constant="15" id="xLf-fj-cKH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pKk-YK-GYT" secondAttribute="trailing" id="zcE-T8-6rK"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="9vx-14-YVq" appends="YES" id="lBb-qM-QWN"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="NC2-14-55j" id="2C6-AA-eqU"/>
+                        <outlet property="photoImageView" destination="2Rj-0n-L3A" id="IWM-iK-dy4"/>
+                        <outlet property="tableView" destination="pKk-YK-GYT" id="wbY-9g-ZBK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Zh-4s-wSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9vx-14-YVq" userLabel="close keyboard">
+                    <connections>
+                        <action selector="closeKeyboard:" destination="Ahe-xu-EvV" id="OVF-kd-0oH"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="CuD-nw-BaR" userLabel="choose image">
+                    <connections>
+                        <action selector="chooseImage:" destination="Ahe-xu-EvV" id="48F-na-b2f"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="351" y="-138"/>
+            <point key="canvasLocation" x="350.625" y="-138.38028169014083"/>
         </scene>
     </scenes>
 </document>

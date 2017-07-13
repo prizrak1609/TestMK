@@ -22,6 +22,11 @@ final class CarsScreen : UIViewController {
         navigationItem.rightBarButtonItems = [addCarButton]
         initTableView()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // TODO: update info
+    }
 }
 
 extension CarsScreen : UITableViewDelegate, UITableViewDataSource {
