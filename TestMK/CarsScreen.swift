@@ -19,8 +19,7 @@ final class CarsScreen : UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: false)
         title = NSLocalizedString("Cars", comment: "CarsScreen title")
         let addCarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCarButtonClicked))
-        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonClicked))
-        navigationItem.rightBarButtonItems = [addCarButton, editButton]
+        navigationItem.rightBarButtonItems = [addCarButton]
         initTableView()
     }
 }

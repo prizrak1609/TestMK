@@ -10,7 +10,7 @@ import UIKit
 
 final class DriversScreen: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet fileprivate weak var tableView: UITableView!
 
     fileprivate var tableViewIsInEditMode = false
 
@@ -19,13 +19,12 @@ final class DriversScreen: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: false)
         title = NSLocalizedString("Drivers", comment: "DriversScreen title")
         let addCarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDriverButtonClicked))
-        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonClicked))
-        navigationItem.rightBarButtonItems = [addCarButton, editButton]
+        navigationItem.rightBarButtonItems = [addCarButton]
         initTableView()
     }
 }
 
-extension DriversScreen : UITabBarDelegate, UITableViewDataSource {
+extension DriversScreen : UITableViewDelegate, UITableViewDataSource {
 
     func initTableView() {
         tableView.delegate = self
