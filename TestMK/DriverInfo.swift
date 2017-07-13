@@ -7,7 +7,11 @@
 //
 
 struct DriverInfo {
-    var photoPath: String
-    var name: String
-    var cars: [Int]
+    var photoPath = ""
+    var name = ""
+    var cars = [CarsInfo]()
+
+    var isEmpty: Bool {
+        return name.isEmpty
+    }
 }

@@ -81,6 +81,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="createButton" destination="EHX-nR-KAy" id="x7Y-OS-Cex"/>
                         <outlet property="nameTextField" destination="NC2-14-55j" id="2C6-AA-eqU"/>
                         <outlet property="photoImageView" destination="2Rj-0n-L3A" id="IWM-iK-dy4"/>
                         <outlet property="tableView" destination="pKk-YK-GYT" id="wbY-9g-ZBK"/>

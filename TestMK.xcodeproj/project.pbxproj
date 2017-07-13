@@ -32,7 +32,6 @@
 		78E1C5881F17BEE200904364 /* DriversScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E1C5871F17BEE200904364 /* DriversScreen.swift */; };
 		78E1C58A1F17BFBA00904364 /* DriverInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E1C5891F17BFBA00904364 /* DriverInfo.swift */; };
 		78E1C58D1F17C16300904364 /* DriverCreateScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E1C58C1F17C16300904364 /* DriverCreateScreen.storyboard */; };
-		78E1C5901F17C21A00904364 /* DriverInfoScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E1C58F1F17C21A00904364 /* DriverInfoScreen.storyboard */; };
 		78E1C5941F17C37B00904364 /* DriverInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E1C5921F17C37B00904364 /* DriverInfoCell.swift */; };
 		78E1C5951F17C37B00904364 /* DriverInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78E1C5931F17C37B00904364 /* DriverInfoCell.xib */; };
 		78E1C5971F17CA6500904364 /* CarsInfoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E1C5961F17CA6500904364 /* CarsInfoScreen.swift */; };
@@ -79,7 +78,6 @@
 		78E1C5871F17BEE200904364 /* DriversScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriversScreen.swift; sourceTree = "<group>"; };
 		78E1C5891F17BFBA00904364 /* DriverInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverInfo.swift; sourceTree = "<group>"; };
 		78E1C58C1F17C16300904364 /* DriverCreateScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DriverCreateScreen.storyboard; sourceTree = "<group>"; };
-		78E1C58F1F17C21A00904364 /* DriverInfoScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DriverInfoScreen.storyboard; sourceTree = "<group>"; };
 		78E1C5921F17C37B00904364 /* DriverInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverInfoCell.swift; sourceTree = "<group>"; };
 		78E1C5931F17C37B00904364 /* DriverInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriverInfoCell.xib; sourceTree = "<group>"; };
 		78E1C5961F17CA6500904364 /* CarsInfoScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsInfoScreen.swift; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 				78DDFB101F17E24D009D3623 /* CarsChooseScreen */,
 				78E1C56A1F17A31800904364 /* DriversScreen */,
 				78E1C58B1F17C14E00904364 /* DriverCreateScreen */,
-				78E1C58E1F17C20900904364 /* DriverInfoScreen */,
 				780C927F1F179B4300F8F845 /* Other */,
 			);
 			path = TestMK;
@@ -280,14 +277,6 @@
 				78DDFB0D1F17E207009D3623 /* DriverCreateScreen.swift */,
 			);
 			name = DriverCreateScreen;
-			sourceTree = "<group>";
-		};
-		78E1C58E1F17C20900904364 /* DriverInfoScreen */ = {
-			isa = PBXGroup;
-			children = (
-				78E1C58F1F17C21A00904364 /* DriverInfoScreen.storyboard */,
-			);
-			name = DriverInfoScreen;
 			sourceTree = "<group>";
 		};
 		78E1C5911F17C35700904364 /* Cell */ = {
@@ -392,7 +381,6 @@
 				78DC789B1F1795CA006C2B6F /* LaunchScreen.storyboard in Resources */,
 				78E1C58D1F17C16300904364 /* DriverCreateScreen.storyboard in Resources */,
 				78DDFB121F17E266009D3623 /* CarsChoose.storyboard in Resources */,
-				78E1C5901F17C21A00904364 /* DriverInfoScreen.storyboard in Resources */,
 				78E1C5701F17A5F700904364 /* CarsScreen.storyboard in Resources */,
 				78E1C57E1F17AB5A00904364 /* CarsInfoCell.xib in Resources */,
 				78DC78981F1795CA006C2B6F /* Assets.xcassets in Resources */,

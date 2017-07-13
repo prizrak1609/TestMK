@@ -7,7 +7,12 @@
 //
 
 struct CarsInfo {
-    var photoPath: String
-    var name: String
-    var description: String
+    var id = -1
+    var photoPath = ""
+    var name = ""
+    var description = ""
+
+    var isEmpty: Bool {
+        return name.isEmpty && id == -1
+    }
 }

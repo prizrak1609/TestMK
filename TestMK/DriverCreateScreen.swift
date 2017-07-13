@@ -14,6 +14,9 @@ final class DriverCreateScreen : UIViewController {
     @IBOutlet fileprivate weak var photoImageView: UIImageView!
     @IBOutlet fileprivate weak var nameTextField: UITextField!
     @IBOutlet fileprivate weak var tableView: UITableView!
+    @IBOutlet fileprivate weak var createButton: UIButton!
+
+    var model = DriverInfo()
 
     fileprivate let imagePicker = UIImagePickerController()
 
@@ -25,6 +28,19 @@ final class DriverCreateScreen : UIViewController {
         super.viewWillAppear(animated)
         photoImageView.layer.borderColor = UIColor.blue.cgColor
         photoImageView.layer.borderWidth = 1
+        if !model.isEmpty {
+            createButton.isHidden = true
+            photoImageView.image = UIImage(contentsOfFile: model.photoPath)
+            nameTextField.text = model.name
+            // TODO: update cars
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if createButton.isHidden {
+            // TODO: update driver info
+        }
     }
 
     @IBAction func addCar(_ sender: UIButton) {
@@ -77,11 +93,19 @@ extension DriverCreateScreen : UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return model.cars.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.carsInfo) as? CarsInfoCell else { return UITableViewCell() }
+        cell.model = model.cars[indexPath.row]
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        return [UITableViewRowAction(style: .normal, title: "Delete", handler: { [weak self] _, indexPath in
+            guard let welf = self else { return }
+            welf.model.cars.remove(at: indexPath.row)
+        })]
     }
 }
