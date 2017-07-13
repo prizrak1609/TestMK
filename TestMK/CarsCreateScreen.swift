@@ -16,6 +16,8 @@ final class CarsCreateScreen : UIViewController {
     @IBOutlet fileprivate weak var descriptionTextField: UITextView!
     @IBOutlet fileprivate weak var createButton: UIButton!
 
+    var model = CarsInfo()
+
     fileprivate let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
@@ -30,6 +32,19 @@ final class CarsCreateScreen : UIViewController {
         descriptionTextField.layer.cornerRadius = 10
         descriptionTextField.layer.borderWidth = 0.7
         descriptionTextField.layer.borderColor = UIColor.lightGray.cgColor
+        if !model.isEmpty {
+            nameTextField.text = model.name
+            photoImageView.image = UIImage(contentsOfFile: model.photoPath)
+            descriptionTextField.text = model.description
+            createButton.isHidden = true
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if createButton.isHidden {
+            // TODO: update info
+        }
     }
 
     @IBAction func chooseImage(_ sender: UITapGestureRecognizer) {
@@ -60,6 +75,8 @@ extension CarsCreateScreen : UIImagePickerControllerDelegate, UINavigationContro
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         photoImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        photoImageView.layer.borderWidth = 0
+        model.photoPath = (info[UIImagePickerControllerReferenceURL] as? URL)?.absoluteString ?? ""
         imagePicker.dismiss(animated: true, completion: nil)
     }
 }

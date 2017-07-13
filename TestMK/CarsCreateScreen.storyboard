@@ -40,16 +40,16 @@
                                 </connections>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4U4-pN-Omp">
-                                <rect key="frame" x="16" y="269" width="288" height="128"/>
+                                <rect key="frame" x="16" y="269" width="288" height="249"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="O0h-4e-s2x"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="O0h-4e-s2x"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KcR-J9-7Cg">
-                                <rect key="frame" x="137" y="402" width="46" height="30"/>
+                                <rect key="frame" x="137" y="523" width="46" height="30"/>
                                 <state key="normal" title="Create"/>
                                 <connections>
                                     <action selector="createCar:" destination="3JL-dI-z7L" eventType="touchUpInside" id="Auc-iX-W58"/>
@@ -63,6 +63,7 @@
                             <constraint firstItem="KcR-J9-7Cg" firstAttribute="top" secondItem="4U4-pN-Omp" secondAttribute="bottom" constant="5" id="6GW-Nx-EUR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gc6-F5-Koz" secondAttribute="trailing" id="BjA-Ev-9BK"/>
                             <constraint firstItem="gc6-F5-Koz" firstAttribute="top" secondItem="xOD-gT-Jmi" secondAttribute="bottom" constant="5" id="R4u-fy-NuC"/>
+                            <constraint firstItem="Jgg-4c-CRZ" firstAttribute="top" secondItem="KcR-J9-7Cg" secondAttribute="bottom" constant="15" id="VK5-6g-UfI"/>
                             <constraint firstItem="gc6-F5-Koz" firstAttribute="leading" secondItem="XHe-Oq-LZL" secondAttribute="leadingMargin" id="WvU-Qz-ocn"/>
                             <constraint firstItem="KcR-J9-7Cg" firstAttribute="centerX" secondItem="XHe-Oq-LZL" secondAttribute="centerX" id="i6k-NF-bVe"/>
                             <constraint firstItem="4U4-pN-Omp" firstAttribute="leading" secondItem="XHe-Oq-LZL" secondAttribute="leadingMargin" id="nuu-H7-bom"/>

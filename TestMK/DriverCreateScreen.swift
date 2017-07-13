@@ -20,10 +20,6 @@ final class DriverCreateScreen : UIViewController {
 
     fileprivate let imagePicker = UIImagePickerController()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         photoImageView.layer.borderColor = UIColor.blue.cgColor
@@ -76,6 +72,7 @@ extension DriverCreateScreen : UIImagePickerControllerDelegate, UINavigationCont
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         photoImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         photoImageView.layer.borderWidth = 0
+        model.photoPath = (info[UIImagePickerControllerReferenceURL] as? URL)?.absoluteString ?? ""
         imagePicker.dismiss(animated: true, completion: nil)
     }
 }
