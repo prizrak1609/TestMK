@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ug6-tK-Uca">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -8,19 +8,34 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Cars Choose-->
         <scene sceneID="Xbc-NW-OBF">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Ug6-tK-Uca" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Ug6-tK-Uca" customClass="CarsChoose" customModule="TestMK" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Txm-1i-0MO"/>
                         <viewControllerLayoutGuide type="bottom" id="h12-mu-AHq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rNj-DL-ZDh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Afp-1a-a4D">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Afp-1a-a4D" secondAttribute="trailing" id="Gdi-LN-uvj"/>
+                            <constraint firstItem="h12-mu-AHq" firstAttribute="top" secondItem="Afp-1a-a4D" secondAttribute="bottom" id="LaQ-fz-GIx"/>
+                            <constraint firstItem="Afp-1a-a4D" firstAttribute="top" secondItem="Txm-1i-0MO" secondAttribute="bottom" id="icI-Y8-2UJ"/>
+                            <constraint firstItem="Afp-1a-a4D" firstAttribute="leading" secondItem="rNj-DL-ZDh" secondAttribute="leading" id="o6T-TK-0Hb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Afp-1a-a4D" id="Uev-5v-5c1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IQs-bY-x1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

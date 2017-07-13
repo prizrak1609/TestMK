@@ -28,7 +28,6 @@ final class DriverCreateScreen : UIViewController {
             createButton.isHidden = true
             photoImageView.image = UIImage(contentsOfFile: model.photoPath)
             nameTextField.text = model.name
-            // TODO: update cars
         }
     }
 
@@ -40,7 +39,12 @@ final class DriverCreateScreen : UIViewController {
     }
 
     @IBAction func addCar(_ sender: UIButton) {
-        // TODO: show CarsChoose
+        if let carsChooseStoryboard = UIStoryboard(name: "CarsChoose", bundle: nil).instantiateInitialViewController() as? CarsChoose {
+            carsChooseStoryboard.delegate = self
+            navigationController?.pushViewController(carsChooseStoryboard, animated: true)
+        } else {
+            showText("can't get CarsChoose storyboard")
+        }
     }
 
     @IBAction func createDriver(_ sender: UIButton) {
@@ -64,6 +68,14 @@ final class DriverCreateScreen : UIViewController {
 
     @IBAction func closeKeyboard(_ sender: UITapGestureRecognizer) {
         IQKeyboardManager.shared().resignFirstResponder()
+    }
+}
+
+extension DriverCreateScreen : CarsChooseProtocol {
+
+    func CCPchoosed(cars: [CarsInfo]) {
+        model.cars = cars
+        tableView.reloadData()
     }
 }
 

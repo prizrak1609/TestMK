@@ -19,6 +19,7 @@
 		78DC78A61F1795CA006C2B6F /* TestMKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DC78A51F1795CA006C2B6F /* TestMKTests.swift */; };
 		78DDFB0E1F17E207009D3623 /* DriverCreateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DDFB0D1F17E207009D3623 /* DriverCreateScreen.swift */; };
 		78DDFB121F17E266009D3623 /* CarsChoose.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78DDFB111F17E266009D3623 /* CarsChoose.storyboard */; };
+		78DDFB161F17F5F7009D3623 /* CarsChoose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DDFB151F17F5F7009D3623 /* CarsChoose.swift */; };
 		78E1C5691F179D1C00904364 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E1C5681F179D1C00904364 /* Storyboards.swift */; };
 		78E1C5701F17A5F700904364 /* CarsScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E1C56F1F17A5F700904364 /* CarsScreen.storyboard */; };
 		78E1C5721F17A60200904364 /* DriversScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E1C5711F17A60200904364 /* DriversScreen.storyboard */; };
@@ -63,6 +64,7 @@
 		78DC78A71F1795CA006C2B6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78DDFB0D1F17E207009D3623 /* DriverCreateScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverCreateScreen.swift; sourceTree = "<group>"; };
 		78DDFB111F17E266009D3623 /* CarsChoose.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CarsChoose.storyboard; sourceTree = "<group>"; };
+		78DDFB151F17F5F7009D3623 /* CarsChoose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsChoose.swift; sourceTree = "<group>"; };
 		78E1C5681F179D1C00904364 /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		78E1C56F1F17A5F700904364 /* CarsScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CarsScreen.storyboard; sourceTree = "<group>"; };
 		78E1C5711F17A60200904364 /* DriversScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DriversScreen.storyboard; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				78DDFB111F17E266009D3623 /* CarsChoose.storyboard */,
+				78DDFB151F17F5F7009D3623 /* CarsChoose.swift */,
 			);
 			name = CarsChooseScreen;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78E1C5741F17A7B100904364 /* CarsScreen.swift in Sources */,
+				78DDFB161F17F5F7009D3623 /* CarsChoose.swift in Sources */,
 				78DDFB0E1F17E207009D3623 /* DriverCreateScreen.swift in Sources */,
 				78E1C5991F17CE1900904364 /* CarsCreateScreen.swift in Sources */,
 				78E1C5801F17ADC200904364 /* Cells.swift in Sources */,

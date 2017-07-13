@@ -21,8 +21,4 @@ final class CarsInfoCell: UITableViewCell {
             descriptionLabel.text = model.description
         }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(false, animated: false)
-    }
 }

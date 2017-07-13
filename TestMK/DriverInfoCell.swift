@@ -19,8 +19,4 @@ final class DriverInfoCell: UITableViewCell {
             name.text = model.name
         }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(false, animated: false)
-    }
 }
