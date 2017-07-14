@@ -13,6 +13,8 @@ final class DriversScreen: UIViewController {
     @IBOutlet fileprivate weak var tableView: UITableView!
 
     fileprivate var tableViewIsInEditMode = false
+    fileprivate var drivers = [DriverInfo]()
+    fileprivate let database = Database()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,19 @@ final class DriversScreen: UIViewController {
         let addCarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDriverButtonClicked))
         navigationItem.rightBarButtonItems = [addCarButton]
         initTableView()
+        if case .error(let text) = database.openOrCreate() {
+            log(text)
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        switch database.getAllDrivers() {
+            case .error(let text): log(text)
+            case .success(let drivers):
+                self.drivers = drivers
+                tableView.reloadData()
+        }
     }
 }
 
@@ -37,11 +52,12 @@ extension DriversScreen : UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return drivers.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.driverInfo) as? DriverInfoCell else { return UITableViewCell() }
+        cell.model = drivers[indexPath.row]
         return cell
     }
 
@@ -50,15 +66,23 @@ extension DriversScreen : UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        return [UITableViewRowAction(style: .normal, title: "Edit", handler: { [weak self] _, indexPath in
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit", handler: { [weak self] _, indexPath in
             guard let welf = self else { return }
-            log(indexPath)
-//            if let driverInfoScreen = Storyboards.driverInfo {
-//                welf.navigationController?.pushViewController(driverInfoScreen, animated: true)
-//            } else {
-//                showText("can't get \(Storyboards.Name.driverInfo) storyboard")
-//            }
-        })]
+            if let driverCreateScreen = Storyboards.driverCreate as? DriverCreateScreen {
+                driverCreateScreen.model = welf.drivers[indexPath.row]
+                welf.navigationController?.pushViewController(driverCreateScreen, animated: true)
+            } else {
+                showText("can't get \(Storyboards.Name.driverCreate) storyboard")
+            }
+        })
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { [weak self] _, indexPath in
+            guard let welf = self else { return }
+            let driver = welf.drivers.remove(at: indexPath.row)
+            if case .error(let text) = welf.database.remove(driver: driver) {
+                log(text)
+            }
+        }
+        return [editAction, deleteAction]
     }
 }
 
