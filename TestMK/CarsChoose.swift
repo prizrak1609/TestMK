@@ -24,12 +24,15 @@ final class CarsChoose : UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initTableView()
         if case .error(let text) = database.openOrCreate() {
             log(text)
         }
         switch database.getAllCars() {
             case .error(let text): log(text)
-            case .success(let cars): models = cars
+            case .success(let cars):
+                models = cars
+                tableView.reloadData()
         }
     }
 
@@ -37,6 +40,7 @@ final class CarsChoose : UIViewController {
         super.viewWillDisappear(animated)
         let choosedCars = selectedIndexes.map { models[$0] }
         delegate?.CCPchoosed(cars: choosedCars)
+        database.close()
     }
 }
 
@@ -45,6 +49,8 @@ extension CarsChoose : UITableViewDelegate, UITableViewDataSource {
     func initTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 112
+        tableView.register(UINib(nibName: Cell.carsInfo, bundle: nil), forCellReuseIdentifier: Cell.carsInfo)
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -58,9 +64,7 @@ extension CarsChoose : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.carsInfo) as? CarsInfoCell else { return UITableViewCell() }
         cell.model = models[indexPath.row]
-        if selectedIndexes.contains(indexPath.row) {
-            cell.setSelected(true, animated: true)
-        }
+        cell.setSelected(selectedIndexes.contains(indexPath.row), animated: true)
         return cell
     }
 

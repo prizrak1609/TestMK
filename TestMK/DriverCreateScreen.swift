@@ -20,13 +20,30 @@ final class DriverCreateScreen : UIViewController {
 
     fileprivate let imagePicker = UIImagePickerController()
     fileprivate let database = Database()
+    fileprivate var isInEditState = false {
+        didSet {
+            if isInEditState {
+                createButton.setTitle(NSLocalizedString("Update", comment: "update button DriverCreateScreen"), for: .normal)
+            } else {
+                createButton.setTitle(NSLocalizedString("Create", comment: "create button DriverCreateScreen"), for: .normal)
+            }
+        }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initTableView()
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if case .error(let text) = database.openOrCreate() {
+            log(text)
+        }
         photoImageView.layer.borderColor = UIColor.blue.cgColor
         photoImageView.layer.borderWidth = 1
         if !model.isEmpty {
-            createButton.isHidden = true
+            isInEditState = true
             photoImageView.setImage(path: model.photoPath)
             nameTextField.text = model.name
         }
@@ -34,10 +51,7 @@ final class DriverCreateScreen : UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if createButton.isHidden, case .error(let text) = database.update(driver: model) {
-            showText(NSLocalizedString("somesing wrong when update info", comment: "Driver create screen"))
-            log(text)
-        }
+        database.close()
     }
 
     @IBAction func addCar(_ sender: UIButton) {
@@ -45,16 +59,31 @@ final class DriverCreateScreen : UIViewController {
             carsChooseStoryboard.delegate = self
             navigationController?.pushViewController(carsChooseStoryboard, animated: true)
         } else {
-            showText("can't get CarsChoose storyboard")
+            log("can't get CarsChoose storyboard")
         }
     }
 
     @IBAction func createDriver(_ sender: UIButton) {
-        if case .error(let text) = database.create(driver: model) {
-            showText(NSLocalizedString("somesing wrong when create driver", comment: "Driver create screen"))
-            log(text)
+        let name = nameTextField.text ?? ""
+        if name.isEmpty {
+            showText(NSLocalizedString("fill name", comment: "DriverCreateScreen"))
+            return
+        }
+        model.name = name
+        if isInEditState {
+            if case .error(let text) = database.update(driver: model) {
+                showText(NSLocalizedString("somesing wrong when update info", comment: "Driver create screen"))
+                log(text)
+            } else {
+                navigationController?.popViewController(animated: true)
+            }
         } else {
-            navigationController?.popViewController(animated: true)
+            if case .error(let text) = database.create(driver: model) {
+                showText(NSLocalizedString("somesing wrong when create driver", comment: "Driver create screen"))
+                log(text)
+            } else {
+                navigationController?.popViewController(animated: true)
+            }
         }
     }
 
@@ -81,7 +110,8 @@ final class DriverCreateScreen : UIViewController {
 extension DriverCreateScreen : CarsChooseProtocol {
 
     func CCPchoosed(cars: [CarsInfo]) {
-        model.cars = cars
+        model.cars.append(contentsOf: cars)
+        model.cars.removeDuplicates()
         tableView.reloadData()
     }
 }
@@ -101,6 +131,7 @@ extension DriverCreateScreen : UITableViewDelegate, UITableViewDataSource {
     func initTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.estimatedRowHeight = 112
         tableView.register(UINib(nibName: Cell.carsInfo, bundle: nil), forCellReuseIdentifier: Cell.carsInfo)
     }
 
@@ -126,6 +157,7 @@ extension DriverCreateScreen : UITableViewDelegate, UITableViewDataSource {
                 showText(NSLocalizedString("somesing wrong when remove car", comment: "DriverCreateScreen"))
                 log(text)
             }
+            welf.tableView.reloadData()
         })]
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2017 Dima Gubatenko. All rights reserved.
 //
 
-struct CarsInfo {
+struct CarsInfo : Equatable {
     var id: Int64 = -1
     var photoPath = ""
     var name = ""
@@ -14,5 +14,9 @@ struct CarsInfo {
 
     var isEmpty: Bool {
         return name.isEmpty && id == -1
+    }
+
+    static func == (lhs: CarsInfo, rhs: CarsInfo) -> Bool {
+        return lhs.id == rhs.id
     }
 }

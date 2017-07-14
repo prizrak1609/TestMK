@@ -30,15 +30,11 @@ final class CarsCreateScreen : UIViewController {
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if case .error(let text) = database.openOrCreate() {
             log(text)
         }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         photoImageView.layer.borderColor = UIColor.blue.cgColor
         photoImageView.layer.borderWidth = 1
         descriptionTextField.layer.cornerRadius = 10
@@ -50,6 +46,11 @@ final class CarsCreateScreen : UIViewController {
             descriptionTextField.text = model.description
             isInUpdateState = true
         }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        database.close()
     }
 
     @IBAction func chooseImage(_ sender: UITapGestureRecognizer) {

@@ -12,6 +12,7 @@
 		780C927E1F179B3700F8F845 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 780C927D1F179B3700F8F845 /* libsqlite3.tbd */; };
 		780C92841F179BE800F8F845 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C92831F179BE800F8F845 /* Functions.swift */; };
 		785979371F190CD900259841 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785979361F190CD900259841 /* UIImageExt.swift */; };
+		785979391F191BC200259841 /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785979381F191BC200259841 /* ArrayExt.swift */; };
 		78DC78911F1795CA006C2B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DC78901F1795CA006C2B6F /* AppDelegate.swift */; };
 		78DC78931F1795CA006C2B6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DC78921F1795CA006C2B6F /* ViewController.swift */; };
 		78DC78961F1795CA006C2B6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78DC78941F1795CA006C2B6F /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		780C927D1F179B3700F8F845 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		780C92831F179BE800F8F845 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		785979361F190CD900259841 /* UIImageExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
+		785979381F191BC200259841 /* ArrayExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExt.swift; sourceTree = "<group>"; };
 		78DC788D1F1795CA006C2B6F /* TestMK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78DC78901F1795CA006C2B6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78DC78921F1795CA006C2B6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			children = (
 				78DDFB1A1F17FBF5009D3623 /* TestMK-Bridging-Header.h */,
 				785979361F190CD900259841 /* UIImageExt.swift */,
+				785979381F191BC200259841 /* ArrayExt.swift */,
 				78DC78901F1795CA006C2B6F /* AppDelegate.swift */,
 				78DC78971F1795CA006C2B6F /* Assets.xcassets */,
 				78DC78991F1795CA006C2B6F /* LaunchScreen.storyboard */,
@@ -535,6 +538,7 @@
 				78E1C5941F17C37B00904364 /* DriverInfoCell.swift in Sources */,
 				78E1C5691F179D1C00904364 /* Storyboards.swift in Sources */,
 				78E1C5791F17A99D00904364 /* CarsInfo.swift in Sources */,
+				785979391F191BC200259841 /* ArrayExt.swift in Sources */,
 				78DC78931F1795CA006C2B6F /* ViewController.swift in Sources */,
 				78DC78911F1795CA006C2B6F /* AppDelegate.swift in Sources */,
 				785979371F190CD900259841 /* UIImageExt.swift in Sources */,

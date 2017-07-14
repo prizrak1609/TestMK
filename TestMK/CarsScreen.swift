@@ -49,7 +49,7 @@ extension CarsScreen : UITableViewDelegate, UITableViewDataSource {
     func initTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 10
+        tableView.estimatedRowHeight = 112
         tableView.register(UINib(nibName: Cell.carsInfo, bundle: nil), forCellReuseIdentifier: Cell.carsInfo)
     }
 

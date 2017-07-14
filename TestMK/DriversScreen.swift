@@ -23,19 +23,24 @@ final class DriversScreen: UIViewController {
         let addCarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDriverButtonClicked))
         navigationItem.rightBarButtonItems = [addCarButton]
         initTableView()
-        if case .error(let text) = database.openOrCreate() {
-            log(text)
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if case .error(let text) = database.openOrCreate() {
+            log(text)
+        }
         switch database.getAllDrivers() {
             case .error(let text): log(text)
             case .success(let drivers):
                 self.drivers = drivers
                 tableView.reloadData()
         }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        database.close()
     }
 }
 
@@ -44,6 +49,7 @@ extension DriversScreen : UITableViewDelegate, UITableViewDataSource {
     func initTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 100
         tableView.register(UINib(nibName: Cell.driverInfo, bundle: nil), forCellReuseIdentifier: Cell.driverInfo)
     }
 
