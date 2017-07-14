@@ -58,17 +58,21 @@ final class Database {
         }
     }
 
-    deinit {
+    func close() {
         sqlite3_close(database)
+    }
+
+    deinit {
+        close()
     }
 
     func create(car: CarsInfo) -> Result<CarsInfo> {
         var createItem: OpaquePointer?
         let createCarString = "insert into cars (photoPath, name, description) values (?, ?, ?);"
         if sqlite3_prepare_v2(database, createCarString, -1, &createItem, nil) == SQLITE_OK {
-            sqlite3_bind_text(createItem, 1, car.photoPath, -1, nil)
-            sqlite3_bind_text(createItem, 2, car.name, -1, nil)
-            sqlite3_bind_text(createItem, 3, car.description, -1, nil)
+            sqlite3_bind_text(createItem, 1, (car.photoPath as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(createItem, 2, (car.name as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(createItem, 3, (car.description as NSString).utf8String, -1, nil)
             if sqlite3_step(createItem) != SQLITE_DONE {
                 return .error("Could not insert row.")
             }
@@ -87,8 +91,8 @@ final class Database {
         var createItem: OpaquePointer?
         let createDriverString = "insert into drivers (photoPath, name) values (?, ?);"
         if sqlite3_prepare_v2(database, createDriverString, -1, &createItem, nil) == SQLITE_OK {
-            sqlite3_bind_text(createItem, 1, driver.photoPath, -1, nil)
-            sqlite3_bind_text(createItem, 2, driver.name, -1, nil)
+            sqlite3_bind_text(createItem, 1, (driver.photoPath as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(createItem, 2, (driver.name as NSString).utf8String, -1, nil)
             if sqlite3_step(createItem) != SQLITE_DONE {
                 return .error("Could not insert row.")
             }
@@ -128,9 +132,9 @@ final class Database {
         var updateItem: OpaquePointer?
         let updateCarString = "update cars set photoPath = ?, name = ?, decription = ? where id = ?;"
         if sqlite3_prepare_v2(database, updateCarString, -1, &updateItem, nil) == SQLITE_OK {
-            sqlite3_bind_text(updateItem, 1, car.photoPath, -1, nil)
-            sqlite3_bind_text(updateItem, 2, car.name, -1, nil)
-            sqlite3_bind_text(updateItem, 3, car.description, -1, nil)
+            sqlite3_bind_text(updateItem, 1, (car.photoPath as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(updateItem, 2, (car.name as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(updateItem, 3, (car.description as NSString).utf8String, -1, nil)
             sqlite3_bind_int64(updateItem, 4, car.id)
             if sqlite3_step(updateItem) != SQLITE_DONE {
                 return .error("Could not insert row.")
@@ -146,8 +150,8 @@ final class Database {
         var updateItem: OpaquePointer?
         let updateDriverString = "update drivers set photoPath = ?, name = ? where id = ?;"
         if sqlite3_prepare_v2(database, updateDriverString, -1, &updateItem, nil) == SQLITE_OK {
-            sqlite3_bind_text(updateItem, 1, driver.photoPath, -1, nil)
-            sqlite3_bind_text(updateItem, 2, driver.name, -1, nil)
+            sqlite3_bind_text(updateItem, 1, (driver.photoPath as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(updateItem, 2, (driver.name as NSString).utf8String, -1, nil)
             sqlite3_bind_int64(updateItem, 3, driver.id)
             if sqlite3_step(updateItem) != SQLITE_DONE {
                 return .error("Could not insert row.")

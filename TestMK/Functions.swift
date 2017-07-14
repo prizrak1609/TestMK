@@ -14,8 +14,8 @@ func showText(_ string: String, time: TimeInterval = 2, onTap: (() -> Void)? = n
     }
     var options: [String : Any] = [kCRToastTextKey : string,
                                    kCRToastTextAlignmentKey : NSNumber(value: NSTextAlignment.center.rawValue),
-                                   kCRToastBackgroundColorKey : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
-                                   kCRToastTextColorKey : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+                                   kCRToastBackgroundColorKey : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+                                   kCRToastTextColorKey : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
                                    kCRToastAnimationInTypeKey : NSNumber(value: CRToastAnimationType.gravity.rawValue),
                                    kCRToastAnimationOutTypeKey : NSNumber(value: CRToastAnimationType.gravity.rawValue),
                                    kCRToastAnimationInDirectionKey : NSNumber(value: CRToastAnimationDirection.left.rawValue),

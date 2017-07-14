@@ -16,7 +16,13 @@ enum Storyboards {
         static let driverCreate = "DriverCreateScreen"
     }
 
-    static let main = UIStoryboard(name: Name.main, bundle: nil).instantiateInitialViewController()
-    static let carsCreate = UIStoryboard(name: Name.carsCreate, bundle: nil).instantiateInitialViewController()
-    static let driverCreate = UIStoryboard(name: Name.driverCreate, bundle: nil).instantiateInitialViewController()
+    static var main: UIViewController? {
+        return UIStoryboard(name: Name.main, bundle: nil).instantiateInitialViewController()
+    }
+    static var carsCreate: UIViewController? {
+        return UIStoryboard(name: Name.carsCreate, bundle: nil).instantiateInitialViewController()
+    }
+    static var driverCreate: UIViewController? {
+        return UIStoryboard(name: Name.driverCreate, bundle: nil).instantiateInitialViewController()
+    }
 }

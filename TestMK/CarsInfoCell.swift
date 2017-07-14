@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 final class CarsInfoCell: UITableViewCell {
     @IBOutlet fileprivate weak var photoImageView: UIImageView!
@@ -16,7 +17,7 @@ final class CarsInfoCell: UITableViewCell {
     var model: CarsInfo? {
         didSet {
             guard let model = model else { return }
-            photoImageView.image = UIImage(contentsOfFile: model.photoPath)
+            photoImageView.setImage(path: model.photoPath)
             nameLabel.text = model.name
             descriptionLabel.text = model.description
         }

@@ -15,7 +15,7 @@ final class DriverInfoCell: UITableViewCell {
     var model: DriverInfo? {
         didSet {
             guard let model = model else { return }
-            photoImageView.image = UIImage(contentsOfFile: model.photoPath)
+            photoImageView.setImage(path: model.photoPath)
             name.text = model.name
         }
     }

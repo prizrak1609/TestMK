@@ -23,19 +23,24 @@ final class CarsScreen : UIViewController {
         let addCarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCarButtonClicked))
         navigationItem.rightBarButtonItems = [addCarButton]
         initTableView()
-        if case .error(let text) = database.openOrCreate() {
-            log(text)
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if case .error(let text) = database.openOrCreate() {
+            log(text)
+        }
         switch database.getAllCars() {
             case .error(let text): log(text)
             case .success(let cars):
                 self.cars = cars
                 tableView.reloadData()
         }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        database.close()
     }
 }
 
@@ -44,6 +49,7 @@ extension CarsScreen : UITableViewDelegate, UITableViewDataSource {
     func initTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 10
         tableView.register(UINib(nibName: Cell.carsInfo, bundle: nil), forCellReuseIdentifier: Cell.carsInfo)
     }
 

@@ -20,6 +20,15 @@ final class CarsCreateScreen : UIViewController {
 
     fileprivate let imagePicker = UIImagePickerController()
     fileprivate let database = Database()
+    fileprivate var isInUpdateState = false {
+        didSet {
+            if isInUpdateState {
+                createButton.setTitle(NSLocalizedString("Update", comment: "update button CarsCreateScreen"), for: .normal)
+            } else {
+                createButton.setTitle(NSLocalizedString("Create", comment: "create button CarsCreateScreen"), for: .normal)
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,17 +46,9 @@ final class CarsCreateScreen : UIViewController {
         descriptionTextField.layer.borderColor = UIColor.lightGray.cgColor
         if !model.isEmpty {
             nameTextField.text = model.name
-            photoImageView.image = UIImage(contentsOfFile: model.photoPath)
+            photoImageView.setImage(path: model.photoPath)
             descriptionTextField.text = model.description
-            createButton.isHidden = true
-        }
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if createButton.isHidden, case .error(let text) = database.update(car: model) {
-            showText(NSLocalizedString("somesing wrong when update info", comment: "Cars create screen"))
-            log(text)
+            isInUpdateState = true
         }
     }
 
@@ -71,11 +72,27 @@ final class CarsCreateScreen : UIViewController {
     }
 
     @IBAction func createCar(_ sender: UIButton) {
-        if case .error(let text) = database.create(car: model) {
-            showText(NSLocalizedString("somesing wrong when create car", comment: "CarsCreateScreen"))
-            log(text)
+        let name = nameTextField.text ?? ""
+        if name.isEmpty {
+            showText(NSLocalizedString("fill name text field", comment: "CarsCreateScreen"))
+            return
+        }
+        model.name = name
+        model.description = descriptionTextField.text ?? ""
+        if isInUpdateState {
+            if case .error(let text) = database.update(car: model) {
+                showText(NSLocalizedString("somesing wrong when update car", comment: "CarsCreateScreen"))
+                log(text)
+            } else {
+                navigationController?.popViewController(animated: true)
+            }
         } else {
-            navigationController?.popViewController(animated: true)
+            if case .error(let text) = database.create(car: model) {
+                showText(NSLocalizedString("somesing wrong when create car", comment: "CarsCreateScreen"))
+                log(text)
+            } else {
+                navigationController?.popViewController(animated: true)
+            }
         }
     }
 }

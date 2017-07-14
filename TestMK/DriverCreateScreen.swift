@@ -27,7 +27,7 @@ final class DriverCreateScreen : UIViewController {
         photoImageView.layer.borderWidth = 1
         if !model.isEmpty {
             createButton.isHidden = true
-            photoImageView.image = UIImage(contentsOfFile: model.photoPath)
+            photoImageView.setImage(path: model.photoPath)
             nameTextField.text = model.name
         }
     }
