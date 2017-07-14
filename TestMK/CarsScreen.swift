@@ -89,7 +89,7 @@ extension CarsScreen : UITableViewDelegate, UITableViewDataSource {
             }
             welf.tableView.reloadData()
         }
-        return [editAction, deleteAction]
+        return [deleteAction, editAction]
     }
 }
 

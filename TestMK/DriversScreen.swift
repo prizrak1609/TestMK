@@ -88,7 +88,7 @@ extension DriversScreen : UITableViewDelegate, UITableViewDataSource {
                 log(text)
             }
         }
-        return [editAction, deleteAction]
+        return [deleteAction, editAction]
     }
 }
 
