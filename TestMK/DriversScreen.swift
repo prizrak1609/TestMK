@@ -87,6 +87,7 @@ extension DriversScreen : UITableViewDelegate, UITableViewDataSource {
             if case .error(let text) = welf.database.remove(driver: driver) {
                 log(text)
             }
+            welf.tableView.reloadData()
         }
         return [deleteAction, editAction]
     }

@@ -185,7 +185,7 @@ final class Database {
 
     func remove(driver: DriverInfo) -> Result<Void> {
         var removeItem: OpaquePointer?
-        let removeDriverString = "delete from cars where id = ?;"
+        let removeDriverString = "delete from drivers where id = ?;"
         if sqlite3_prepare_v2(database, removeDriverString, -1, &removeItem, nil) == SQLITE_OK {
             sqlite3_bind_int64(removeItem, 1, driver.id)
             if sqlite3_step(removeItem) != SQLITE_DONE {
@@ -249,6 +249,7 @@ final class Database {
                         car.description = String(cString: sqlite3_column_text(carSearchItem, 2))
                         result.append(car)
                     }
+                    log(String(cString: sqlite3_errmsg(database)))
                 } else {
                     return .error("\(String(cString: sqlite3_errmsg(database)))")
                 }
