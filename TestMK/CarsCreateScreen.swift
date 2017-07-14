@@ -74,6 +74,8 @@ final class CarsCreateScreen : UIViewController {
         if case .error(let text) = database.create(car: model) {
             showText(NSLocalizedString("somesing wrong when create car", comment: "CarsCreateScreen"))
             log(text)
+        } else {
+            navigationController?.popViewController(animated: true)
         }
     }
 }

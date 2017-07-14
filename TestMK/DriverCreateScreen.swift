@@ -19,6 +19,7 @@ final class DriverCreateScreen : UIViewController {
     var model = DriverInfo()
 
     fileprivate let imagePicker = UIImagePickerController()
+    fileprivate let database = Database()
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,8 +34,9 @@ final class DriverCreateScreen : UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if createButton.isHidden {
-            // TODO: update driver info
+        if createButton.isHidden, case .error(let text) = database.update(driver: model) {
+            showText(NSLocalizedString("somesing wrong when update info", comment: "Driver create screen"))
+            log(text)
         }
     }
 
@@ -48,7 +50,12 @@ final class DriverCreateScreen : UIViewController {
     }
 
     @IBAction func createDriver(_ sender: UIButton) {
-        // TODO: create driver
+        if case .error(let text) = database.create(driver: model) {
+            showText(NSLocalizedString("somesing wrong when create driver", comment: "Driver create screen"))
+            log(text)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
 
     @IBAction func chooseImage(_ sender: UITapGestureRecognizer) {
@@ -114,7 +121,11 @@ extension DriverCreateScreen : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         return [UITableViewRowAction(style: .normal, title: "Delete", handler: { [weak self] _, indexPath in
             guard let welf = self else { return }
-            welf.model.cars.remove(at: indexPath.row)
+            let car = welf.model.cars.remove(at: indexPath.row)
+            if case .error(let text) = welf.database.removeRelationShip(driver: welf.model, car: car) {
+                showText(NSLocalizedString("somesing wrong when remove car", comment: "DriverCreateScreen"))
+                log(text)
+            }
         })]
     }
 }
