@@ -19,6 +19,14 @@ final class CarsCreateScreen : UIViewController {
     var model = CarsInfo()
 
     fileprivate let imagePicker = UIImagePickerController()
+    fileprivate let database = Database()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if case .error(let text) = database.openOrCreate() {
+            log(text)
+        }
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -37,8 +45,9 @@ final class CarsCreateScreen : UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if createButton.isHidden {
-            // TODO: update info
+        if createButton.isHidden, case .error(let text) = database.update(car: model) {
+            showText(NSLocalizedString("somesing wrong when update info", comment: "Cars create screen"))
+            log(text)
         }
     }
 
@@ -62,7 +71,10 @@ final class CarsCreateScreen : UIViewController {
     }
 
     @IBAction func createCar(_ sender: UIButton) {
-        // TODO: create car
+        if case .error(let text) = database.create(car: model) {
+            showText(NSLocalizedString("somesing wrong when create car", comment: "CarsCreateScreen"))
+            log(text)
+        }
     }
 }
 

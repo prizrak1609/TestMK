@@ -28,3 +28,9 @@ func showText(_ string: String, time: TimeInterval = 2, onTap: (() -> Void)? = n
     }
     CRToastManager.showNotification(options: options, completionBlock: completionBlock)
 }
+
+func log(_ items: Any...) {
+    #if DEBUG
+        print(items)
+    #endif
+}

@@ -52,12 +52,12 @@ extension DriversScreen : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         return [UITableViewRowAction(style: .normal, title: "Edit", handler: { [weak self] _, indexPath in
             guard let welf = self else { return }
-            print(indexPath)
-            if let driverInfoScreen = Storyboards.driverInfo {
-                welf.navigationController?.pushViewController(driverInfoScreen, animated: true)
-            } else {
-                showText("can't get \(Storyboards.Name.driverInfo) storyboard")
-            }
+            log(indexPath)
+//            if let driverInfoScreen = Storyboards.driverInfo {
+//                welf.navigationController?.pushViewController(driverInfoScreen, animated: true)
+//            } else {
+//                showText("can't get \(Storyboards.Name.driverInfo) storyboard")
+//            }
         })]
     }
 }

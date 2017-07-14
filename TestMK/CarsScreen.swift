@@ -24,14 +24,14 @@ final class CarsScreen : UIViewController {
         navigationItem.rightBarButtonItems = [addCarButton]
         initTableView()
         if case .error(let text) = database.openOrCreate() {
-            print(text)
+            log(text)
         }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         switch database.getAllCars() {
-            case .error(let text): print(text)
+            case .error(let text): log(text)
             case .success(let cars):
                 self.cars = cars
                 tableView.reloadData()
@@ -72,14 +72,14 @@ extension CarsScreen : UITableViewDelegate, UITableViewDataSource {
                 carCreateScreen.model = welf.cars[indexPath.row]
                 welf.navigationController?.pushViewController(carCreateScreen, animated: true)
             } else {
-                print("can't get \(Storyboards.Name.carsCreate) storyboard")
+                log("can't get \(Storyboards.Name.carsCreate) storyboard")
             }
         })
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { [weak self] _, indexPath in
             guard let welf = self else { return }
             let car = welf.cars.remove(at: indexPath.row)
             if case .error(let text) = welf.database.remove(car: car) {
-                print(text)
+                log(text)
             }
             welf.tableView.reloadData()
         }
@@ -94,7 +94,7 @@ private extension CarsScreen {
         if let carCreateScreen = Storyboards.carsCreate {
             navigationController?.pushViewController(carCreateScreen, animated: true)
         } else {
-            print("can't get \(Storyboards.Name.carsCreate) storyboard")
+            log("can't get \(Storyboards.Name.carsCreate) storyboard")
         }
     }
 
