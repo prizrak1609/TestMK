@@ -20,6 +20,18 @@ final class CarsChoose : UIViewController {
 
     fileprivate var models = [CarsInfo]()
     fileprivate var selectedIndexes = [Int]()
+    fileprivate let database = Database()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if case .error(let text) = database.openOrCreate() {
+            log(text)
+        }
+        switch database.getAllCars() {
+            case .error(let text): log(text)
+            case .success(let cars): models = cars
+        }
+    }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
