@@ -276,7 +276,6 @@ final class Database {
     }
 
     func getAllDrivers() -> Result<[DriverInfo]> {
-        // взять всех водителей, потом с помощью getDriversCars взять их машины
         var searchItem: OpaquePointer?
         let searchDriversString = "select * from drivers;"
         var result = [DriverInfo]()
