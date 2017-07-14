@@ -7,7 +7,7 @@
 //
 
 struct CarsInfo {
-    var id = -1
+    var id: Int64 = -1
     var photoPath = ""
     var name = ""
     var description = ""

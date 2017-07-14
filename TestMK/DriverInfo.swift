@@ -7,11 +7,12 @@
 //
 
 struct DriverInfo {
+    var id: Int64 = -1
     var photoPath = ""
     var name = ""
     var cars = [CarsInfo]()
 
     var isEmpty: Bool {
-        return name.isEmpty
+        return name.isEmpty && id == -1
     }
 }

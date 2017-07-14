@@ -20,11 +20,6 @@ final class CarsCreateScreen : UIViewController {
 
     fileprivate let imagePicker = UIImagePickerController()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        descriptionTextField.delegate = self
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         photoImageView.layer.borderColor = UIColor.blue.cgColor
@@ -78,18 +73,5 @@ extension CarsCreateScreen : UIImagePickerControllerDelegate, UINavigationContro
         photoImageView.layer.borderWidth = 0
         model.photoPath = (info[UIImagePickerControllerReferenceURL] as? URL)?.absoluteString ?? ""
         imagePicker.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension CarsCreateScreen : UITextViewDelegate {
-
-    func textViewDidChange(_ textView: UITextView) {
-        if textView.text.characters.count > 255 {
-            textView.layer.borderWidth = 1
-            textView.layer.borderColor = UIColor.red.cgColor
-            createButton.isEnabled = false
-        } else {
-            textView.layer.borderWidth = 0
-        }
     }
 }
